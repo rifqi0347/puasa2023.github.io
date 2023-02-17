@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Puasa Ramadhan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    .countdown-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    
+    .countdown-container > div {
+      text-align: center;
+    }
+    
+    .countdown-container .number {
+      font-size: 4em;
+      font-weight: bold;
+      display: inline-block;
+      margin: 0 20px;
+      border-radius: 10px;
+      background-color: #1111;
+      color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .countdown {
+      display: inline-block;
+      margin: 0 10px;
+      background-color: #1111;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+    }
+    .countdown h2 {
+      margin-top: 0;
+      font-size: 2em;
+      color: #333;
+    }
+    .countdown p {
+      font-size: 1.2em;
+      color: #666;
+      margin-bottom: 0;
+    }
+    .countdown .number {
+      font-size: 3em;
+      color: #111;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      margin-top: 50px;
+    }
+    table td, table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    table th {
+      background-color: #f2f2f2;
+    }
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="countdown-container">
+    <div class="countdown">
+      <h2>Puasa Ramadhan 2023</h2>
+      <p>Hitung Mundur Menuju Tanggal 23 Maret 2023</p> <br>
+      <div id="countdown"></div>
+    </div>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Tanggal</th>
+        <th>Jadwal Imsak</th>
+        <th>Jadwal Subuh</th>
+        <th>Jadwal Dzuhur</th>
+        <th>Jadwal Ashar</th>
+        <th>Jadwal Maghrib</th>
+        <th>Jadwal Isya</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td>04:20</td>
+        <td>04:30</td>
+        <td>12:05</td>
+        <td>15:25</td>
+        <td>18:12</td>
+        <td>19:25</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Mar 23, 2023 04:00:00").getTime();
+
+    // Update the countdown every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the countdown date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the countdown in the element with id="countdown"
+      document.getElementById("countdown").innerHTML = "<div class='number'>" + days + "</div>Hari" + "<div class='number'>" + hours + "</div>Jam" + "<div class='number'>" + minutes + "</div>Menit" + "<div class='number'>" + seconds + "</div>Detik";
+
+      // If the countdown is finished, display a message
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Waktunya Puasa!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+
